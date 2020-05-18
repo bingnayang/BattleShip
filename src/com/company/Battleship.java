@@ -1,12 +1,23 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Battleship {
+
     private int[] opponentLocation = {4,5,6};
     private int mapSize = 10;
+    private int numberOfHit;
 
     public Battleship() {
+    }
+
+    public int getNumberOfHit() {
+        return numberOfHit;
+    }
+
+    public void setNumberOfHit(int numberOfHit) {
+        this.numberOfHit = numberOfHit;
     }
 
     public void setOpponentLocation(int[] opponentLocation) {
@@ -61,6 +72,7 @@ public class Battleship {
     public boolean checkHitGuess(int guessLocation){
         for (int cell : opponentLocation) {
             if (cell == guessLocation) {
+                numberOfHit++;
                 return true;
             }
         }
